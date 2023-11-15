@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  mysql-source:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_DATABASE: source
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-source:/var/lib/mysql
+    networks:
+      - private-network
+
+volumes:
+  mysql-source:
+    driver: local
+
+networks:
+  private-network:
+    external: true
+    name: private-network
+
+#gui
+#cn=admin,dc=feiupce,dc=cz
+#admin_password_ldap
+
+#acc
+#techa, techa
+#techb, techb
+#techc, techc
+
+#conn database
+#docker exec -it mysql-ldap-a mysql -uroot -p
+#conn mariandb
+#docker exec -it maria-db mariadb --user root -proot_password
+
+#create users
+#CREATE USER 'techc'@'%' IDENTIFIED BY 'techc';
+#GRANT ALL PRIVILEGES ON dbc.* TO 'techc'@'%';
