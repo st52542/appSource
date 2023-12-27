@@ -1,4 +1,4 @@
-package fei.upce.appsource.entity;
+package fei.upce.appsource.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,16 +21,16 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @Getter @Setter Long id;
 
-    String firstName;
+    @Getter @Setter String firstName;
 
-    String lastName;
+    @Getter @Setter String lastName;
 
     @Column(unique = true)
-    String email;
+    @Getter @Setter String email;
 
-    String password;
+    @Getter @Setter String password;
 
     @Enumerated(EnumType.STRING)
     Role role;

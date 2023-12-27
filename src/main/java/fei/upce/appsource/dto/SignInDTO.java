@@ -1,4 +1,4 @@
-package fei.upce.appsource.DTO;
+package fei.upce.appsource.dto;
 
 import lombok.*;
 

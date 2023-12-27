@@ -1,4 +1,4 @@
-package fei.upce.appsource.entity;
+package fei.upce.appsource.Entity;
 
 
 import jakarta.persistence.*;

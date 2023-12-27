@@ -1,6 +1,6 @@
 package fei.upce.appsource.service;
 
-import fei.upce.appsource.entity.SourceData;
+import fei.upce.appsource.Entity.SourceData;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,10 +1,10 @@
 package fei.upce.appsource.service;
 
-import fei.upce.appsource.DTO.JwtAuthResponseDTO;
-import fei.upce.appsource.DTO.SignInDTO;
-import fei.upce.appsource.DTO.SignUpDTO;
+import fei.upce.appsource.dto.JwtAuthResponseDTO;
+import fei.upce.appsource.dto.SignInDTO;
+import fei.upce.appsource.dto.SignUpDTO;
 
 public interface AuthService {
-    JwtAuthResponseDTO signup(SignUpDTO request);
+    Boolean signup(SignUpDTO request);
     JwtAuthResponseDTO signin(SignInDTO request);
 }

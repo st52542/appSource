@@ -1,6 +1,6 @@
 package fei.upce.appsource.service;
 
-import fei.upce.appsource.entity.SourceData;
+import fei.upce.appsource.Entity.SourceData;
 import fei.upce.appsource.repository.SourceDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

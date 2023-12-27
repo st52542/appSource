@@ -1,16 +1,18 @@
 package fei.upce.appsource.service;
 
-import fei.upce.appsource.DTO.JwtAuthResponseDTO;
-import fei.upce.appsource.DTO.SignInDTO;
-import fei.upce.appsource.DTO.SignUpDTO;
-import fei.upce.appsource.entity.User;
-import fei.upce.appsource.entity.Role;
+import fei.upce.appsource.dto.JwtAuthResponseDTO;
+import fei.upce.appsource.dto.SignInDTO;
+import fei.upce.appsource.dto.SignUpDTO;
+import fei.upce.appsource.Entity.User;
+import fei.upce.appsource.Entity.Role;
 import fei.upce.appsource.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -34,7 +36,9 @@ public class AuthServiceImpl implements AuthService {
         this.authenticationManager = authenticationManager;
     }
 
-    public JwtAuthResponseDTO signup(SignUpDTO request) {
+    public Boolean signup(SignUpDTO request) {
+        User userCheck = userRepository.findUserByEmail(request.getEmail());
+        if(Objects.isNull(userCheck) || !userCheck.getEmail().equals(request.getEmail())){
         var user = User
                 .builder()
                 .firstName(request.getFirstName())
@@ -44,9 +48,10 @@ public class AuthServiceImpl implements AuthService {
                 .role(Role.ROLE_READER)
                 .build();
 
-        user = userServiceImpl.save(user);
-        var jwt = jwtServiceImpl.generateToken(user);
-        return JwtAuthResponseDTO.builder().token(jwt).build();
+        userServiceImpl.save(user);
+        return true;
+        }
+        return false;
     }
 
 

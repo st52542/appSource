@@ -1,6 +1,6 @@
 package fei.upce.appsource.service;
 
-import fei.upce.appsource.entity.User;
+import fei.upce.appsource.Entity.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService {
