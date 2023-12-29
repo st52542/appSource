@@ -31,7 +31,7 @@ public class SourceDataController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         } else {
-            throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS, "Too many requests");
+            throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS);
         }
     }
 }
